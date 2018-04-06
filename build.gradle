@@ -31,3 +31,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: junit_version
 
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "4.6"
+}
