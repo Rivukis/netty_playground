@@ -1,4 +1,4 @@
-package com.willkamp.server;
+package com.willkamp.server.echo;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

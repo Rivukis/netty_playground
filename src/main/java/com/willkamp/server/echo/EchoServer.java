@@ -1,4 +1,4 @@
-package com.willkamp.server;
+package com.willkamp.server.echo;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

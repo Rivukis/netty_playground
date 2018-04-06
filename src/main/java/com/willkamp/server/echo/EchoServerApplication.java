@@ -1,6 +1,6 @@
-package com.willkamp.server;
+package com.willkamp.server.echo;
 
-public class ServerApplication {
+public class EchoServerApplication {
 
     public static void main(String[] args) throws Exception {
         final int port;
