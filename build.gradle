@@ -24,10 +24,13 @@ if (osName.contains('win')) {
 }
 
 dependencies {
+    compile group: 'io.netty', name: 'netty-all', version: netty_version
     compile group: 'io.netty', name: 'netty-codec-http2', version: netty_version
     compile group: 'org.eclipse.jetty.alpn', name: 'alpn-api', version: jetty_alpn_api_version
     compile group: 'io.netty', name: 'netty-codec-http2', version: netty_version
     compile group: 'io.netty', name: 'netty-tcnative-boringssl-static', version: netty_tcnative_version, classifier: nativeClassifier
+    compile group: 'com.google.guava', name: 'guava', version: '24.1-jre'
+
     testCompile group: 'junit', name: 'junit', version: junit_version
 
 }
