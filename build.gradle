@@ -24,12 +24,31 @@ if (osName.contains('win')) {
 }
 
 dependencies {
+
+    /**
+     * Netty http://netty.io/
+     * Network framework
+     */
     compile group: 'io.netty', name: 'netty-all', version: netty_version
     compile group: 'io.netty', name: 'netty-codec-http2', version: netty_version
     compile group: 'org.eclipse.jetty.alpn', name: 'alpn-api', version: jetty_alpn_api_version
     compile group: 'io.netty', name: 'netty-codec-http2', version: netty_version
     compile group: 'io.netty', name: 'netty-tcnative-boringssl-static', version: netty_tcnative_version, classifier: nativeClassifier
+
+    /**
+     * Guava https://github.com/google/guava
+     * Google core libraries for java
+     */
     compile group: 'com.google.guava', name: 'guava', version: '24.1-jre'
+
+    /**
+     * Jackson https://github.com/FasterXML
+     * Object (De)Serialization
+     */
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.4'
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-parameter-names', version: '2.9.4'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.9.4'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.4'
 
     testCompile group: 'junit', name: 'junit', version: junit_version
 

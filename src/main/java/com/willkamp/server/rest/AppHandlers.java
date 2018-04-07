@@ -6,8 +6,7 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 class AppHandlers {
     ImmutableMap<String, RequestHandler> handlers() {
         return ImmutableMap.of(
-                "/api/v1/home", request -> new ResponseBuilder().setBody("{}")
-                        .setStatus(HttpResponseStatus.OK)
-                        .setVersion(request.protocolVersion()));
+                "/api/v1/home", responseBuilder -> responseBuilder.setBody(new Pojo("i'm a title"))
+                        .setStatus(HttpResponseStatus.OK));
     }
 }
