@@ -9,6 +9,8 @@ import io.netty.buffer.ByteBufAllocator;
 import io.netty.buffer.ByteBufOutputStream;
 import io.netty.buffer.Unpooled;
 import io.netty.handler.codec.http.*;
+import io.netty.handler.codec.http2.DefaultHttp2Headers;
+import io.netty.handler.codec.http2.Http2Headers;
 import io.netty.util.AsciiString;
 
 import java.io.IOException;
@@ -32,18 +34,12 @@ public class ResponseBuilder {
 
     private final ByteBufAllocator allocator;
 
-    private HttpVersion version;
     private HttpResponseStatus status;
     private ByteBuf body = null;
     private Map<AsciiString, AsciiString> headers = null;
 
     public ResponseBuilder(ByteBufAllocator allocator) {
         this.allocator = allocator;
-    }
-
-    public ResponseBuilder setVersion(HttpVersion version) {
-        this.version = version;
-        return this;
     }
 
     public ResponseBuilder setStatus(HttpResponseStatus status) {
@@ -55,6 +51,11 @@ public class ResponseBuilder {
         byte[] bytes = body.getBytes(StandardCharsets.UTF_8);
         this.body = Unpooled.copiedBuffer(bytes);
         addHeader(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.TEXT_PLAIN);
+        return this;
+    }
+
+    public ResponseBuilder setBodyData(ByteBuf data) {
+        body = data;
         return this;
     }
 
@@ -77,18 +78,29 @@ public class ResponseBuilder {
         return this;
     }
 
-    public FullHttpResponse build() {
-        checkNotNull(version, "HttpVersion not set");
+    public FullHttpResponse buildH1() {
         checkNotNull(status, "HttpResponseStatus not set");
-        if (body == null) {
-            body = Unpooled.EMPTY_BUFFER;
-        }
-        DefaultFullHttpResponse response = new DefaultFullHttpResponse(version, status, body);
+        DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, status, buildH2BodyData());
         response.headers().set(HttpHeaderNames.USER_AGENT, "WBK Netty Sandbox");
         if (headers != null) {
             headers.forEach((key, value) -> response.headers().set(key, value));
         }
-        response.headers().set(HttpHeaderNames.CONTENT_LENGTH, body.readableBytes());
+        response.headers().set(HttpHeaderNames.CONTENT_LENGTH, buildH2BodyData().readableBytes());
         return response;
     }
+
+    public ByteBuf buildH2BodyData() {
+        if (body == null) {
+            body = Unpooled.EMPTY_BUFFER;
+        }
+        return body;
+    }
+
+    public Http2Headers buildH2Headers() {
+        checkNotNull(status, "HttpResponseStatus not set");
+        return new DefaultHttp2Headers().status(status.codeAsText());
+    }
+
+//    public
+
 }
