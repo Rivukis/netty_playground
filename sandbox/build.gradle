@@ -1,0 +1,5 @@
+group 'com.willkamp.sandbox'
+version version_name
+description = 'sandbox'
+
+sourceCompatibility = 1.8

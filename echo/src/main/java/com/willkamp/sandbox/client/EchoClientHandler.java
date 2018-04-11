@@ -1,4 +1,4 @@
-package com.willkamp.client;
+package com.willkamp.sandbox.client;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

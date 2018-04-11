@@ -1,4 +1,4 @@
-package com.willkamp.server.echo;
+package com.willkamp.sandbox.server;
 
 public class EchoServerApplication {
 

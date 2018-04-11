@@ -1,0 +1,24 @@
+plugins {
+    id 'application'
+}
+
+version = version_name
+sourceCompatibility = 1.8
+mainClassName = "com.willkamp.server.rest.RestServerApplication"
+
+dependencies {
+    /**
+     * Guava https://github.com/google/guava
+     * Google core libraries for java
+     */
+    compile group: 'com.google.guava', name: 'guava', version: '24.1-jre'
+
+    /**
+     * Jackson https://github.com/FasterXML
+     * Object (De)Serialization
+     */
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.4'
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-parameter-names', version: '2.9.4'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.9.4'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.4'
+}

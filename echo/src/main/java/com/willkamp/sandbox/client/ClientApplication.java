@@ -1,4 +1,4 @@
-package com.willkamp.client;
+package com.willkamp.sandbox.client;
 
 
 public class ClientApplication {

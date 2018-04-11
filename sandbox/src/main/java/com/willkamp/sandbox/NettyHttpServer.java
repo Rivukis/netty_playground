@@ -1,6 +1,7 @@
 package com.willkamp.sandbox;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
@@ -42,7 +43,7 @@ public class NettyHttpServer {
                                         FullHttpResponse response = new DefaultFullHttpResponse(
                                                 HttpVersion.HTTP_1_1,
                                                 HttpResponseStatus.OK,
-                                                copiedBuffer(responseMessage.getBytes())
+                                                Unpooled.copiedBuffer(responseMessage.getBytes())
                                         );
 
                                         if (HttpUtil.isKeepAlive(request)) {

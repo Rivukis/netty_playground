@@ -1,4 +1,4 @@
-package com.willkamp.server.echo;
+package com.willkamp.sandbox.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -27,7 +27,7 @@ class EchoServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new EchoServerHandler());
+                            ch.pipeline().addLast(new com.willkamp.server.echo.EchoServerHandler());
                         }
                     });
             ChannelFuture channelFuture = serverBootstrap.bind().sync();

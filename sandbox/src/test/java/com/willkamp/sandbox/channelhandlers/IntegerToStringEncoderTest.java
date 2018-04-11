@@ -1,13 +1,10 @@
 package com.willkamp.sandbox.channelhandlers;
 
-import com.willkamp.sandbox.channelhandlers.IntegerToStringEncoder;
 import io.netty.channel.embedded.EmbeddedChannel;
+import org.junit.Assert;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertEquals;
-
-public class IntegerToStringEncoderTest {
+public class IntegerToStringEncoderTest extends Assert {
   @Test
   public void testEncoded() {
     Integer testValue = 9000;

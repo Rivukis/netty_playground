@@ -1,4 +1,4 @@
-package com.willkamp.client;
+package com.willkamp.sandbox.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
