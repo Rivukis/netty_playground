@@ -1,4 +1,4 @@
-package com.willkamp.server.rest;
+package com.willkamp.server.rest.model;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

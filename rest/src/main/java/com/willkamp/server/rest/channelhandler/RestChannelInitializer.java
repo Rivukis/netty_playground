@@ -1,5 +1,6 @@
-package com.willkamp.server.rest;
+package com.willkamp.server.rest.channelhandler;
 
+import com.willkamp.server.rest.resthandler.RestHandlers;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
@@ -10,7 +11,7 @@ import io.netty.handler.ssl.SslContext;
 public class RestChannelInitializer extends ChannelInitializer<SocketChannel> {
 
     private final SslContext sslContext;
-    private final AppHandlers appHandlers = new AppHandlers();
+    private final RestHandlers appHandlers = new RestHandlers();
 
     public RestChannelInitializer(SslContext sslContext) {
         this.sslContext = sslContext;

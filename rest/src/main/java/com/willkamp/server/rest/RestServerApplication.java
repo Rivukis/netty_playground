@@ -18,7 +18,7 @@ public class RestServerApplication {
             useTls = true;
             port = 8443;
         }
-
+        System.out.println("Serving content on port: " + port);
         RestServer server = new RestServer(port, useTls);
         server.start();
     }

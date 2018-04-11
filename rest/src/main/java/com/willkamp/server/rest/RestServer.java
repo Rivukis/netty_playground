@@ -1,5 +1,6 @@
 package com.willkamp.server.rest;
 
+import com.willkamp.server.rest.channelhandler.RestChannelInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;

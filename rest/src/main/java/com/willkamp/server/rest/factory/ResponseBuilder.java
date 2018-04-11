@@ -1,4 +1,4 @@
-package com.willkamp.server.rest;
+package com.willkamp.server.rest.factory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
@@ -100,7 +100,4 @@ public class ResponseBuilder {
         checkNotNull(status, "HttpResponseStatus not set");
         return new DefaultHttp2Headers().status(status.codeAsText());
     }
-
-//    public
-
 }

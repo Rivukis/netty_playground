@@ -1,4 +1,4 @@
-package com.willkamp.server.rest;
+package com.willkamp.server.rest.channelhandler;
 
 import com.google.common.collect.ImmutableMap;
 import io.netty.channel.ChannelHandlerContext;
@@ -17,7 +17,7 @@ public class Http2OrHttpHandler extends ApplicationProtocolNegotiationHandler {
     private Consumer<ChannelPipeline> h1FallbackPipelineAssembler;
     private final ImmutableMap<String, RequestHandler> handlers;
 
-    protected Http2OrHttpHandler(Consumer<ChannelPipeline> fallBackpipelineAssembler, ImmutableMap<String, RequestHandler> handlers) {
+    Http2OrHttpHandler(Consumer<ChannelPipeline> fallBackpipelineAssembler, ImmutableMap<String, RequestHandler> handlers) {
         super(ApplicationProtocolNames.HTTP_1_1);
         this.h1FallbackPipelineAssembler = fallBackpipelineAssembler;
         this.handlers = handlers;

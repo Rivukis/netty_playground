@@ -1,4 +1,4 @@
-package com.willkamp.server.rest;
+package com.willkamp.server.rest.channelhandler;
 
 import com.google.common.collect.ImmutableMap;
 import io.netty.handler.codec.http2.*;
@@ -10,7 +10,7 @@ public final class RestHttp2HandlerBuilder extends AbstractHttp2ConnectionHandle
     private static final Http2FrameLogger logger = new Http2FrameLogger(INFO, RestHttp2Handler.class);
     private final ImmutableMap<String, RequestHandler> handlers;
 
-    public RestHttp2HandlerBuilder(ImmutableMap<String, RequestHandler> handlers) {
+    RestHttp2HandlerBuilder(ImmutableMap<String, RequestHandler> handlers) {
         frameLogger(logger);
         this.handlers = handlers;
     }

@@ -1,6 +1,8 @@
-package com.willkamp.server.rest;
+package com.willkamp.server.rest.channelhandler;
 
 import com.google.common.collect.ImmutableMap;
+import com.willkamp.server.rest.factory.ResponseBuilder;
+import com.willkamp.server.rest.model.Pojo;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
